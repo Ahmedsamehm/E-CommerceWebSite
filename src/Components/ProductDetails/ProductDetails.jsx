@@ -7,6 +7,7 @@ import { ProductsContext } from "../../Context/ProductsContext";
 import DetailsSlider from "../DetailsSlider/DetailsSlider";
 import AddToCart from "../AddToCart";
 import { AuthContext } from "../../Context/AuthContext";
+import AddToWishList from "../AddToWishList";
 
 export default function ProductDetails() {
   let { id } = useParams();
@@ -88,7 +89,7 @@ export default function ProductDetails() {
                   </svg>
                   Add to Cart
                 </button>
-                <button className="bg-gray-200 flex gap-2 items-center  text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                <button onClick={()=>AddToWishList(ProductDetails._id,UserToken)} className="bg-gray-200 flex gap-2 items-center  text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
