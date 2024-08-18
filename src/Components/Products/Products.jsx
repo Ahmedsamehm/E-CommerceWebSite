@@ -21,7 +21,7 @@ export default function Products({ product }) {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="col-auto md:col-span-1 lg:col-span-1 xl:col-span-1  ">
+          <div className="col-auto md:col-span-1 lg:col-span-1 xl:col-span-1 md:p-5 sm:p-2 lg:p-1  xl:p-2 mx-auto   ">
   <div className="w-full mx-auto bg-white shadow-lg rounded-xl overflow-hidden transform transition duration-30 hover:scale-105 dark:bg-gray-800 dark:border-gray-700">
                 <Link
                   to={"/ProductDetails/" + product._id}
@@ -33,7 +33,7 @@ export default function Products({ product }) {
                     alt={product.title}
                   />
                 </Link>
-                <div className="p-6">
+                <div className="px-4 pb-5">
                   <Link to={"/ProductDetails/" + product._id}>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1 hover:text-blue-600 transition duration-300 ">
                       {product.title}

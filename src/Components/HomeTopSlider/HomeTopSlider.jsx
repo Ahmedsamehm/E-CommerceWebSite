@@ -41,12 +41,13 @@ export default function HomeTopSlider() {
     ],
   };
   return (
-    <section id="HomeTopSlider">
+    <section id="HomeTopSlider" className="overflow-hidden w-full md:w-2/3  lg:w-2/3 2xl:w-2/5 mx-auto">
   <Slider {...settings}>
       { products.slice(0,3)?.map((product, index) => {
         return  (
           <div key={index} className="rounded-lg shadow-md ">
-           <img src={product.imageCover} className="w-1/2 mx-auto object-cover bg-center"  alt="" />
+           <img src={product.imageCover} className="w-1/3 lg:w-1/2 2xl:w-1/2 mx-auto object-cover bg-center"  alt="" />
+
           
                 
             </div>

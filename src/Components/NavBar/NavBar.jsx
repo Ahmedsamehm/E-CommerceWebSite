@@ -16,8 +16,6 @@ const navigation = [
   { name: "Brands", to: "/Brands", current: false },
   { name: "MyCart", to: "/Carts", current: false },
   { name: "WishList", to: "/WishList", current: false },
-
-
 ];
 
 function classNames(...classes) {
@@ -30,18 +28,18 @@ export default function Example() {
 
   function signOut() {
     setUserToken("");
-    localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem("token");
+    navigate("/login");
   }
   return (
-    <Disclosure as="nav" className="bg-slate-950 ">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <Disclosure as="nav" className="bg-slate-950 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
             <h1 className="text-3xl  text-white">FreshCart</h1>
           </div>
 
-          <div className="flex justify-end flex-1 sm:hidden">
+          <div className="flex justify-end flex-1 md:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
@@ -56,8 +54,8 @@ export default function Example() {
             </DisclosureButton>
           </div>
 
-          <div className="hidden sm:flex sm:ml-6 sm:items-center">
-            <div className="flex space-x-4">
+          <div className="hidden md:flex  sm:ml-6 sm:items-center">
+            <div className="flex md:space-x-1 lg:space-x-3">
               {UserToken &&
                 navigation.map((item) => (
                   <NavLink
@@ -73,13 +71,15 @@ export default function Example() {
                     {item.name}
                   </NavLink>
                 ))}
-
+              {UserToken && (
+                <button
+                  onClick={signOut}
+                  className="bg-red-700 text-white rounded-md px-3 py-2 text-sm font-medium"
+                >
+                  Sign Out
+                </button>
+              )}
               <>
-              
-            {UserToken&& <button onClick={signOut} className="bg-red-700 text-white rounded-md px-3 py-2 text-sm font-medium">
-              Sign Out
-            </button>}
-
                 {!UserToken && (
                   <ul className="flex gap-x-3 items-center justify-center text-center">
                     <li>
@@ -107,25 +107,48 @@ export default function Example() {
       </div>
 
       {/* Mobile menu */}
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
-            <Link
-            key={item.name}
-            to={item.to}
-              aria-current={item.current ? "page" : undefined}
-              className={classNames(
-                item.current
-                  
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium"
-              )}
+      <DisclosurePanel className="md:hidden">
+        <div className="space-y-2 px-2 pb-3 pt-2">
+          {UserToken &&
+            navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.to}
+                aria-current={item.current ? "page" : undefined}
+                className={classNames(
+                  item.current
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                  "block rounded-md px-3 py-2 text-base font-medium"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          {UserToken && (
+            <button
+              onClick={signOut}
+              className="w-full text-left text-red-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
             >
-       
-              {item.name}
-            </Link>
-          ))}
+              Sign Out
+            </button>
+          )}
+          {!UserToken && (
+            <>
+              <Link
+                to="/login"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </DisclosurePanel>
     </Disclosure>

@@ -26,7 +26,7 @@ export default function ProductSlider() {
       {
         breakpoint: 768, // For screens less than 768px
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
@@ -42,7 +42,7 @@ export default function ProductSlider() {
 
 
 return (
-  <section id="ProductSlider" className="py-8">
+  <section id="ProductSlider" className="overflow-hidden w-full md:w-full  p-0 md:p-10   mx-auto">
     <Slider {...settings}>
       {products.map((product, index) => (
         <div key={index} className="px-2">
@@ -53,10 +53,6 @@ return (
                 className="object-cover w-full h-full"
                 alt={product.title || "Product image"} 
               />
-            </div>
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800 truncate">{product.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{product.price}</p>
             </div>
           </div>
         </div>
