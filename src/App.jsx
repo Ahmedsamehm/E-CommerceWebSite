@@ -26,7 +26,7 @@ import Orders from './Components/Orders/Orders'
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword'
 import RestPasswordPage from './Components/RestPasswordPage/RestPasswordPage'
 import WishList from './Components/WishList/WishList'
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
 
@@ -57,15 +57,16 @@ function App() {
   return (
     <>
       {/* u can make this context inside context like  this  */}
-      <ProductsContext>
-        <AuthContextProvider>
-          <CounterContextProvider>
-            <RouterProvider router={router}></RouterProvider>
-          </CounterContextProvider>
 
-        </AuthContextProvider>
-      </ProductsContext>
-      <ToastContainer />
+      <ProductsContext>
+      <AuthContextProvider>
+        <CounterContextProvider>
+          <RouterProvider router={router} />
+          <SpeedInsights />
+          <ToastContainer />
+        </CounterContextProvider>
+      </AuthContextProvider>
+    </ProductsContext>
 
     </>
   )
