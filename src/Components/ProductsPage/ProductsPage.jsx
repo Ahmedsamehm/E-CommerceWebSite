@@ -16,9 +16,9 @@ export default function ProductsPage() {
   }, [])
   return (
     <>
-      <section id="ProductsPage">
+      <section id="ProductsPage ">
       {isLoading ? <Loading /> :
-         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 p-5">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:gird-cols-3 lg:grid-cols-3 xl:grid-cols-4  gap-5 py-10">
          {products.map((product, index) => {
            return <Products product={product} key={index}  />;
         })}

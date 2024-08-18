@@ -37,38 +37,39 @@ export default function Home() {
    
       
     <>
-      <section id="home">
-      <div className="container mx-auto px-4 py-4">
-    <div className="flex flex-col md:flex-row items-center gap-6 ">
-      <div className="w-full md:w-2/3 lg:w-1/2 ">
-        <HomeTopSlider />
-      </div>
-      <div className="w-full md:w-1/3 lg:w-1/4 space-y-4 flex flex-col items-center mx-auto">
-        <img src={Image1} className="w-full max-w-sm h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" alt="Promotional image 1" />
-        <img src={Image2} className="w-full max-w-sm h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" alt="Promotional image 2" />
-      </div>
+    <section id="home" className="container mx-auto px-4 py-4">
+  <div className="flex flex-col lg:flex-row items-center gap-6">
+    <div className="w-full lg:w-2/3">
+      <HomeTopSlider />
+    </div>
+    <div className="w-full lg:w-1/3 space-y-4 flex flex-col items-center">
+      <img src={Image1} className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" alt="Promotional image 1" />
+      <img src={Image2} className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" alt="Promotional image 2" />
     </div>
   </div>
 
-
-    {isLoading? (
-      <Loading />
-    ) : (
-      <div>
-        <div className="container">
-          <div className="w-5/6 lg:min-w-full mx-auto  lg:p-5">
-            <ProductSlider />
-          </div>
-        </div>
-  
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
-          {products.map((product, index) => {
-            return <Products product={product} key={index} />;
-          })}
-        </div>
+  {isLoading ? (
+    <Loading />
+  ) : (
+    <div className="mt-8">
+      <div className="mb-8">
+        <ProductSlider />
       </div>
-        )}
-      </section>
+
+
+              <div className=" grid grid-cols-1 sm:grid-cols-2 md:gird-cols-3 lg:grid-cols-3 xl:grid-cols-4  gap-5  ">
+                
+                {products.map((product, index) => (
+                  <Products product={product} key={index} />
+                ))}
+            
+  
+</div>
+
+
+    </div>
+  )}
+</section>
    
       
       </>

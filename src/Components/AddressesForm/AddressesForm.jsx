@@ -53,7 +53,7 @@ export default function AddressesForm() {
                 headers: {
                     token: UserToken,
                 }, params:{
-                    url:'http://localhost:5173'
+                    url:'/'
                 },
             })
             .then(({ data }) => {
