@@ -7,11 +7,12 @@ import axios from "axios";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { AuthContext } from "../../Context/AuthContext";
+import Orders from "../Orders/Orders";
 
 export default function AddressesForm() {
     const { cartId } = useParams()
 
-    
+     const navigate = useNavigate()
     const { UserToken } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(false);
     /**
@@ -53,7 +54,7 @@ export default function AddressesForm() {
                 headers: {
                     token: UserToken,
                 }, params:{
-                    url:'/'
+                    url:window.location.origin
                 },
             })
             .then(({ data }) => {
