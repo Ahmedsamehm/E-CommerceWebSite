@@ -26,7 +26,7 @@ import Orders from './Components/Orders/Orders'
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword'
 import RestPasswordPage from './Components/RestPasswordPage/RestPasswordPage'
 import WishList from './Components/WishList/WishList'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 function App() {
 
@@ -62,7 +62,7 @@ function App() {
       <AuthContextProvider>
         <CounterContextProvider>
           <RouterProvider router={router} />
-          <SpeedInsights />
+    
           <ToastContainer />
         </CounterContextProvider>
       </AuthContextProvider>
