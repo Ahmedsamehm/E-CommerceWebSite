@@ -56,12 +56,12 @@ export default function Home() {
     ) : (
       <div>
         <div className="container">
-          <div className="w-5/6 lg:min-w-full mx-auto p-3 lg:p-5">
+          <div className="w-5/6 lg:min-w-full mx-auto  lg:p-5">
             <ProductSlider />
           </div>
         </div>
   
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 p-5">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
           {products.map((product, index) => {
             return <Products product={product} key={index} />;
           })}
