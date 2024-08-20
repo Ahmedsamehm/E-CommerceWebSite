@@ -22,7 +22,7 @@ export default function Home() {
       {
         isLoading ? <Loading /> : 
           
-        <section id="home" className="container mx-auto px-4 py-4">
+        <section id="home" className="container mx-auto px-4 py-4 overflow-hidden">
         <div className="flex flex-col lg:flex-row  md:flex-row  items-center  gap-3 md:px-6">
             <HomeTopSlider />
           <div className="w-full lg:w-1/3  md:w-1/3   space-y-4 flex flex-col items-center mx-auto ">
