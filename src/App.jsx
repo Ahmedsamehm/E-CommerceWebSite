@@ -2,7 +2,7 @@
 import './App.css'
 
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider
 } from 'react-router-dom'
 import Home from './Components/Home/Home'
@@ -28,9 +28,10 @@ import RestPasswordPage from './Components/RestPasswordPage/RestPasswordPage'
 import WishList from './Components/WishList/WishList'
 
 
+
 function App() {
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '',
       element: <Layout />,
@@ -57,16 +58,17 @@ function App() {
   return (
     <>
       {/* u can make this context inside context like  this  */}
-
+     
       <ProductsContext>
-      <AuthContextProvider>
-        <CounterContextProvider>
-          <RouterProvider router={router} />
-    
-          <ToastContainer />
-        </CounterContextProvider>
-      </AuthContextProvider>
-    </ProductsContext>
+        <AuthContextProvider>
+          <CounterContextProvider>
+
+              <RouterProvider router={router} />
+              <ToastContainer />
+
+          </CounterContextProvider>
+        </AuthContextProvider>
+      </ProductsContext>
 
     </>
   )

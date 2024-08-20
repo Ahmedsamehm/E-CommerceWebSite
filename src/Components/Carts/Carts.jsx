@@ -26,6 +26,7 @@ export default function Carts() {
         },
       }
     );
+    console.log(data.data)
     setCart(data);
     setIsLoading(false);
   }

@@ -35,8 +35,9 @@ export default function Login () {
         password: Yup.string()
           .required('Password is required')
           .matches(
+
             /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-            'Password must be at least 8 characters long and contain at least one uppercase '
+            'Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character (#?!@$ %^&*-) example (Aa1234567890#)'
           )
       })
     })
